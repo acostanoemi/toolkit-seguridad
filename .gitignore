@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Salidas que generan las herramientas al correr (NO van al repo)
+*.pcap
+grafico_*.png
+captura_*.png
+integridad_base.json
+*.cifrado
+
+# Entornos
+.venv/
+venv/

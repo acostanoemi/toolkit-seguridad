@@ -1,0 +1,7 @@
+# Dependencias por herramienta (la mayoría usa solo la librería estándar):
+#   cifrar      -> cryptography
+#   sniffer     -> scapy, matplotlib
+#   puertos, logs, web, integridad, pwned -> nada extra (stdlib)
+cryptography
+scapy
+matplotlib
