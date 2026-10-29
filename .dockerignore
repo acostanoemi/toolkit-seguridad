@@ -1,0 +1,16 @@
+# Lo que NO queremos meter adentro de la imagen (la mantiene chica y limpia).
+.git
+.github
+tests
+conftest.py
+__pycache__
+*.pyc
+.pytest_cache
+demo.gif
+*.pcap
+grafico_*.png
+captura_*.png
+integridad_base.json
+*.cifrado
+README.md
+LICENSE

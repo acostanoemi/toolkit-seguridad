@@ -81,3 +81,19 @@ herramientas/           una herramienta por módulo
   integridad.py  pwned.py  cifrar.py
 tests/                  tests automáticos
 ```
+
+## Docker
+
+El toolkit se puede correr en un contenedor, sin instalar nada más que Docker:
+
+```bash
+docker build -t toolkit-seguridad .
+docker run --rm toolkit-seguridad                 # menú de comandos
+docker run --rm toolkit-seguridad web https://ejemplo.com
+```
+
+El `sniffer` necesita acceso a la red del host:
+
+```bash
+sudo docker run --rm --net=host --privileged toolkit-seguridad sniffer -s 10
+```
