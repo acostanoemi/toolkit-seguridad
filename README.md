@@ -2,6 +2,8 @@
 
 # toolkit-seguridad
 
+![demo](demo.gif)
+
 Conjunto de herramientas de seguridad de línea de comandos, escritas en Python,
 bajo un solo comando: `secutil`. Funciona como `git` o `docker` — un comando
 principal y varios subcomandos, cada uno una utilidad independiente.
