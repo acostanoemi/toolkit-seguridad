@@ -2,8 +2,6 @@
 
 # toolkit-seguridad
 
-![demo](demo.gif)
-
 Conjunto de herramientas de seguridad de línea de comandos, escritas en Python,
 bajo un solo comando: `secutil`. Funciona como `git` o `docker` — un comando
 principal y varios subcomandos, cada uno una utilidad independiente.
@@ -55,7 +53,7 @@ pip install -r requirements.txt   # o instalá solo lo de la herramienta que use
 Qué necesita cada una:
 
 - `cifrar` → `cryptography`
-- `sniffer` → `scapy`, `matplotlib`
+- `sniffer` → `scapy` (y `matplotlib` **opcional**, solo para el gráfico; sin él igual captura, analiza y guarda el pcap)
 - `puertos`, `logs`, `web`, `integridad`, `pwned` → sólo la librería estándar
 
 ## Tests
@@ -80,20 +78,4 @@ herramientas/           una herramienta por módulo
   puertos.py  sniffer.py  logs.py  web.py
   integridad.py  pwned.py  cifrar.py
 tests/                  tests automáticos
-```
-
-## Docker
-
-El toolkit se puede correr en un contenedor, sin instalar nada más que Docker:
-
-```bash
-docker build -t toolkit-seguridad .
-docker run --rm toolkit-seguridad                 # menú de comandos
-docker run --rm toolkit-seguridad web https://ejemplo.com
-```
-
-El `sniffer` necesita acceso a la red del host:
-
-```bash
-sudo docker run --rm --net=host --privileged toolkit-seguridad sniffer -s 10
 ```

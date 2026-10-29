@@ -1,7 +1,11 @@
-# Dependencias por herramienta (la mayoría usa solo la librería estándar):
-#   cifrar      -> cryptography
-#   sniffer     -> scapy, matplotlib
-#   puertos, logs, web, integridad, pwned -> nada extra (stdlib)
+# Dependencias del toolkit.
+# La mayoría de las herramientas usan solo la librería estándar.
+#   cifrar   -> cryptography
+#   sniffer  -> scapy
 cryptography
 scapy
-matplotlib
+
+# OPCIONAL: solo para el gráfico del sniffer. Si no lo instalás, el sniffer
+# igual captura, analiza y guarda el pcap; solo omite el PNG del gráfico.
+# Descomentá la línea si querés el gráfico:
+# matplotlib

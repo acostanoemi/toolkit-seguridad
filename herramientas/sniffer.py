@@ -22,11 +22,9 @@ import argparse
 from collections import Counter, defaultdict
 from datetime import datetime
 
-os.environ.setdefault("MPLCONFIGDIR", "/tmp/mpl")
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-
+# matplotlib es OPCIONAL: solo lo necesita el gráfico. Se importa dentro de
+# hacer_grafico(), así el sniffer corre (captura, analiza, guarda pcap) aunque
+# matplotlib no esté instalado. Mantiene liviana la imagen de Docker.
 from scapy.all import sniff, wrpcap, IP, TCP, UDP, ICMP
 
 socket.setdefaulttimeout(1)
@@ -181,6 +179,17 @@ def acortar(texto, largo=22):
 
 def hacer_grafico(top_pub):
     if total == 0:
+        return None
+    # Import perezoso de matplotlib: si no está instalado, se saltea el gráfico
+    # (el resto del análisis y el pcap ya se hicieron igual).
+    try:
+        os.environ.setdefault("MPLCONFIGDIR", "/tmp/mpl")
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        print("\n(Grafico omitido: matplotlib no esta instalado. "
+              "Instalalo con 'pip install matplotlib' si lo queres.)")
         return None
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
     ax1.pie(list(por_protocolo.values()), labels=list(por_protocolo.keys()),
